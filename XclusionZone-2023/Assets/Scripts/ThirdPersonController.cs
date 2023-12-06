@@ -20,7 +20,7 @@ public class ThirdPersonController : MonoBehaviour
     // Player Variables 
     public Rigidbody rigidbody;
     public Transform player;
-    public Transform player_model;
+    public Transform astronaut;
     public Transform orientation;
     public float move_force; //Force applied to player
     public float rotation_speed; //How fast model rotates
@@ -88,11 +88,11 @@ public class ThirdPersonController : MonoBehaviour
 
         if(move_input != Vector2.zero)
         {
-            //Creates a new rotation that we want to player_model to look at
+            //Creates a new rotation that we want to astronaut to look at
             Quaternion new_rotation = Quaternion.LookRotation(direction, Vector3.up);
 
             //Calcuated rotation, now we want the playe_model to move towards that rotation
-            player_model.rotation = Quaternion.Slerp(player_model.rotation, new_rotation, rotation_speed * Time.deltaTime);
+            astronaut.rotation = Quaternion.Slerp(astronaut.rotation, new_rotation, rotation_speed * Time.deltaTime);
         }
     }
 
