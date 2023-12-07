@@ -7,7 +7,7 @@ public class LevelManager : MonoBehaviour
 {
    public static LevelManager instance;
 
-   public GameObject deathScreen;
+   public GameObject deathPanel;
 
 
    private void Awake()
