@@ -1,8 +1,0 @@
-Model Information:
-* title:	Dead Astronaut
-* source:	https://sketchfab.com/3d-models/dead-astronaut-61b37ab29c88415889368661649387e4
-* author:	rvh (https://sketchfab.com/rvh)
-
-Model License:
-* license type:	SKETCHFAB Editorial (https://sketchfab.com/licenses)
-* requirements:	Use only in connection with events that are newsworthy or of public interest
