@@ -16,10 +16,10 @@ public class ThirdPersonController : MonoBehaviour
     private Vector2 move_input;
 
     //Camera Variables
-    public Transform camera;
+    public new Transform camera;
 
     // Player Variables 
-    public Rigidbody rigidbody;
+    public new Rigidbody rigidbody;
     public Transform player;
     public Transform player_model;
     public Transform orientation;
