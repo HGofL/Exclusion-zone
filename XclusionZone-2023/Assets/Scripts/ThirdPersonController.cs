@@ -10,6 +10,8 @@ using UnityEngine.SceneManagement;
 public class ThirdPersonController : MonoBehaviour
 {
 
+    private string[] phrases;
+
     //Variable Declarations
 
     // Input Variables
@@ -29,7 +31,7 @@ public class ThirdPersonController : MonoBehaviour
     public float jump_force = 500f;
 
     //Raycast Variables
-    private float ray_length = 1.1f;
+    private float ray_length = 2.5f;
 
 
 
@@ -37,6 +39,18 @@ public class ThirdPersonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        phrases = new string[7]; //Decalre length of the array.
+        phrases[0] = "YOU SUCK";
+        phrases[1] = "PLAY SOMETHING EASIER";
+        phrases[2] = "A";
+        phrases[3] = "B";
+        phrases[4] = "C";
+        phrases[5] = "D";
+        phrases[6] = "E";
+
+        int randnum = Random.Range(0, phrases.Length - 1);
+        print(phrases[randnum]);
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
@@ -76,7 +90,7 @@ public class ThirdPersonController : MonoBehaviour
     {
         //What direction to face
 
-        var cam_position = new Vector3(camera.position.x, camera.position.y, camera.position.z); 
+        var cam_position = new Vector3(camera.position.x, player.position.y, camera.position.z); 
         Vector3 view_direction = player.position - cam_position;
 
         orientation.forward = view_direction;

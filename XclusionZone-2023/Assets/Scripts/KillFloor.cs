@@ -11,10 +11,14 @@ public class KillFloor : MonoBehaviour
         Debug.Log("Trigger entered");
         if (other.CompareTag("Player")) // Assuming your player has the tag "Player"
         {
-            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            print("A");
+            print(other);
+            PlayerHealth playerHealth = other.transform.parent.GetComponent<PlayerHealth>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(damageAmount);
+                //playerHealth.TakeDamage(damageAmount);
+                playerHealth.Die();
+                print("B");
             }
         }
     }

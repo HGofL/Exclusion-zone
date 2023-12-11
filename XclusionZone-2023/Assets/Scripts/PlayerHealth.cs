@@ -23,10 +23,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
         LevelManager.instance.GameOver();
         gameObject.SetActive(false);
+        print("C");
     }
 
 
