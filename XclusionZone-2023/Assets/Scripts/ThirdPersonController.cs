@@ -33,7 +33,17 @@ public class ThirdPersonController : MonoBehaviour
     //Raycast Variables
     private float ray_length = 2.5f;
 
+    public bool IsJumping()
+    {
+        // Check if the player is currently jumping based on the vertical velocity
+        return Mathf.Abs(rigidbody.velocity.y) > 0.1f;
+    }
 
+    public bool IsMoving()
+    {
+        // Check if the player is currently moving based on the input direction
+        return move_input.magnitude > 0.1f;
+    }
 
 
     // Start is called before the first frame update
@@ -83,7 +93,6 @@ public class ThirdPersonController : MonoBehaviour
             Jump();
         }
 
-
     }
 
     public void RotatePlayerModel()
@@ -126,7 +135,7 @@ public class ThirdPersonController : MonoBehaviour
         }
     }
 
-    bool IsOnGround()
+   public bool IsOnGround()
     {
         Ray ray = new Ray(transform.position, Vector3.down);
         return Physics.Raycast(ray, ray_length);
