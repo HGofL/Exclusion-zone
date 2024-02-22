@@ -40,17 +40,46 @@ public class animationStateController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Check if the player is grounded
         bool isGrounded = thirdPersonController.IsOnGround();
 
         // Handle movement and jump from ThirdPersonController
         thirdPersonController.MovePlayer();
-        thirdPersonController.Jump();
+
+        // Clamp maximum speed
+        Rigidbody rb = GetComponent<Rigidbody>();
+        float maxSpeed = 5f; // Adjust this value as needed
+
+        if (rb.velocity.magnitude > maxSpeed)
+        {
+            rb.velocity = rb.velocity.normalized * maxSpeed;
+        }
+        
         
          // Set animator parameters based on input and ground status
         animator.SetBool(isRunningHash, thirdPersonController.IsMoving());
-        animator.SetBool(isJumpingHash, !isGrounded && thirdPersonController.IsJumping());
+
+        // Check if the player wants to jump and is grounded
+        if (isGrounded && JumpInputDetected())
+    {
+        thirdPersonController.Jump(); // Execute jump logic
+        animator.SetBool(isJumpingHash, true); // Set jump animation
     }
+        else
+    {
+        animator.SetBool(isJumpingHash, false); // Set jump animation to false if not jumping
+    }
+
+
+        // Method to detect jump input
+        bool JumpInputDetected()
+        {
+            // You can change this input condition based on your control scheme
+            return Input.GetKeyDown(KeyCode.Space);
+
+        }
+    }
+        
 }

@@ -1971,11 +1971,11 @@ PrefabInstance:
       objectReference: {fileID: 1599382745}
     - target: {fileID: 5880881545035528277, guid: 2cd745f77009090458b4d933f9d885ce, type: 3}
       propertyPath: jump_force
-      value: 200
+      value: 5000
       objectReference: {fileID: 0}
     - target: {fileID: 5880881545035528277, guid: 2cd745f77009090458b4d933f9d885ce, type: 3}
       propertyPath: move_force
-      value: 13
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 5992794062099712210, guid: 2cd745f77009090458b4d933f9d885ce, type: 3}
       propertyPath: m_Layer
