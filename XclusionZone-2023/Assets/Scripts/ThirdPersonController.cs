@@ -33,14 +33,14 @@ public class ThirdPersonController : MonoBehaviour
     //Raycast Variables
     private float ray_length = 2.5f;
 
-    public bool IsJumping()
+    public bool isJumping()
     {
         // Check if the player is currently jumping based on the vertical velocity
         return Mathf.Abs(rigidbody.velocity.y) > 0.1f;
     }
 
 
-    public bool IsMoving()
+    public bool isMoving()
     {
         // Check if the player is currently moving based on the input direction
         return move_input.magnitude > 0.1f;
@@ -50,7 +50,7 @@ public class ThirdPersonController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        phrases = new string[7]; //Decalre length of the array.
+        phrases = new string[7]; //Declare length of the array.
         phrases[0] = "YOU SUCK";
         phrases[1] = "PLAY SOMETHING EASIER";
         phrases[2] = "A";

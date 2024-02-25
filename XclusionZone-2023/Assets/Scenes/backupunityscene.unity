@@ -1406,13 +1406,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc7ebfb381d694c92894538cab28606c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 0
-  jumpForce: 0
   groundCheck: {fileID: 937403144}
   groundMask:
     serializedVersion: 2
     m_Bits: 0
-  groundDistance: 0.4
+  groundDistance: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0

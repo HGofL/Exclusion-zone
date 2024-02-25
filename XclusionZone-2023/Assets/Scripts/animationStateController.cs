@@ -21,10 +21,6 @@ public class animationStateController : MonoBehaviour
     int isJumpingHash;
     int isFallingHash;
 
-    // Speed and jump parameters
-    public float runSpeed = 5f;
-    public float jumpForce = 8f;
-
     // Ground check parameters
     public Transform groundCheck;
     public LayerMask groundMask;
@@ -60,7 +56,7 @@ public class animationStateController : MonoBehaviour
         }
         
         // Set animator parameters based on input and ground status
-        animator.SetBool(isRunningHash, thirdPersonController.IsMoving());
+        animator.SetBool(isRunningHash, thirdPersonController.isMoving());
 
         // Check if the player wants to jump and is grounded
         if (isGrounded && JumpInputDetected())
@@ -73,16 +69,15 @@ public class animationStateController : MonoBehaviour
             animator.SetBool(isJumpingHash, false); // Set jump animation to false if not jumping
         }
 
-        // Method to detect jump input
-        bool JumpInputDetected()
-        {
-            // You can change this input condition based on your control scheme
-            return Input.GetKeyDown(KeyCode.Space);
-        }
-
         // Set falling animation
         bool isFalling = !isGrounded && rb.velocity.y < 0;
-        animator.SetBool(isFallingHash, true);
+        animator.SetBool(isFallingHash, isFalling);
     }
 
+    // Method to detect jump input
+    bool JumpInputDetected()
+    {
+        // You can change this input condition based on your control scheme
+        return Keyboard.current.spaceKey.wasPressedThisFrame;
+    }
 }
