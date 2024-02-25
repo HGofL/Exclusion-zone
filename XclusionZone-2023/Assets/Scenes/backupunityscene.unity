@@ -615,9 +615,9 @@ GameObject:
   - component: {fileID: 563447998}
   - component: {fileID: 563447997}
   - component: {fileID: 563447996}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Terrain2
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1408,11 +1408,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 0
   jumpForce: 0
-  groundCheck: {fileID: 0}
+  groundCheck: {fileID: 937403144}
   groundMask:
     serializedVersion: 2
     m_Bits: 0
-  groundDistance: 0
+  groundDistance: 0.4
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1971,7 +1971,7 @@ PrefabInstance:
       objectReference: {fileID: 1599382745}
     - target: {fileID: 5880881545035528277, guid: 2cd745f77009090458b4d933f9d885ce, type: 3}
       propertyPath: jump_force
-      value: 5000
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 5880881545035528277, guid: 2cd745f77009090458b4d933f9d885ce, type: 3}
       propertyPath: move_force
@@ -2079,7 +2079,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8821607873224374472, guid: 2cd745f77009090458b4d933f9d885ce, type: 3}
       propertyPath: m_Height
-      value: 2.076875
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 8821607873224374472, guid: 2cd745f77009090458b4d933f9d885ce, type: 3}
       propertyPath: m_Enabled

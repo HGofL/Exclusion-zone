@@ -6,18 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class animationStateController : MonoBehaviour
 {
-
     private Animator animator;
     private ThirdPersonController thirdPersonController;
+    private Rigidbody rb;
 
     // Animation states
     const string IdleState = "Idle";
     const string RunState = "Run";
     const string JumpState = "Jump";
+    const string FallState = "Fall";
 
     // Parameters
     int isRunningHash;
     int isJumpingHash;
+    int isFallingHash;
 
     // Speed and jump parameters
     public float runSpeed = 5f;
@@ -33,10 +35,12 @@ public class animationStateController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         thirdPersonController = GetComponent<ThirdPersonController>();
+        rb = GetComponent<Rigidbody>();
 
         // Get hash of parameters for faster access
         isRunningHash = Animator.StringToHash("isRunning");
-        isJumpingHash = Animator.StringToHash("IsJumping");
+        isJumpingHash = Animator.StringToHash("isJumping");
+        isFallingHash = Animator.StringToHash("isFalling");
     }
 
     // Update is called once per frame
@@ -49,37 +53,36 @@ public class animationStateController : MonoBehaviour
         thirdPersonController.MovePlayer();
 
         // Clamp maximum speed
-        Rigidbody rb = GetComponent<Rigidbody>();
-        float maxSpeed = 5f; // Adjust this value as needed
-
+        float maxSpeed = 10f; // Adjust this value as needed
         if (rb.velocity.magnitude > maxSpeed)
         {
             rb.velocity = rb.velocity.normalized * maxSpeed;
         }
         
-        
-         // Set animator parameters based on input and ground status
+        // Set animator parameters based on input and ground status
         animator.SetBool(isRunningHash, thirdPersonController.IsMoving());
 
         // Check if the player wants to jump and is grounded
         if (isGrounded && JumpInputDetected())
-    {
-        thirdPersonController.Jump(); // Execute jump logic
-        animator.SetBool(isJumpingHash, true); // Set jump animation
-    }
+        {
+            thirdPersonController.Jump(); // Execute jump logic
+            animator.SetBool(isJumpingHash, true); // Set jump animation
+        }
         else
-    {
-        animator.SetBool(isJumpingHash, false); // Set jump animation to false if not jumping
-    }
-
+        {
+            animator.SetBool(isJumpingHash, false); // Set jump animation to false if not jumping
+        }
 
         // Method to detect jump input
         bool JumpInputDetected()
         {
             // You can change this input condition based on your control scheme
             return Input.GetKeyDown(KeyCode.Space);
-
         }
+
+        // Set falling animation
+        bool isFalling = !isGrounded && rb.velocity.y < 0;
+        animator.SetBool(isFallingHash, true);
     }
-        
+
 }

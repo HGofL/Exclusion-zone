@@ -39,6 +39,7 @@ public class ThirdPersonController : MonoBehaviour
         return Mathf.Abs(rigidbody.velocity.y) > 0.1f;
     }
 
+
     public bool IsMoving()
     {
         // Check if the player is currently moving based on the input direction
