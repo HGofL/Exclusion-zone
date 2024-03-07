@@ -19,7 +19,7 @@
             {
                 "type": "System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089",
                 "key": "buildOutputDirList",
-                "value": "{\"m_Value\":\"/Users/hannahguerin/Documents/GitHub/Exclusion-zone/XclusionZone-2023/WebGL Builds/IAA_Demo_1;/Users/hannahguerin/Documents/WebGL/Test3;/Users/hannahguerin/Documents/WebGL/Test2;/Users/hannahguerin/Documents/WebGL/Test1;;;;;;\"}"
+                "value": "{\"m_Value\":\"/Users/hannahguerin/Documents/GitHub/Exclusion-zone/XclusionZone-2023/WebGL Builds/IAA_Demo_2;/Users/hannahguerin/Documents/GitHub/Exclusion-zone/XclusionZone-2023/WebGL Builds/IAA_Demo_1;/Users/hannahguerin/Documents/WebGL/Test3;/Users/hannahguerin/Documents/WebGL/Test2;/Users/hannahguerin/Documents/WebGL/Test1;;;;;\"}"
             }
         ]
     }
