@@ -82,7 +82,7 @@ public class ThirdPersonController : MonoBehaviour
     {
 
         move_input = context.ReadValue<Vector2>();
-        Debug.Log(move_input);
+        //Debug.Log(move_input);
 
     }
 
